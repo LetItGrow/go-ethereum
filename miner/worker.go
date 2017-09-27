@@ -483,8 +483,8 @@ func (self *worker) commitNewWork() {
 	if atomic.LoadInt32(&self.mining) == 1 {
 		log.Info("Commit new mining work", "number", work.Block.Number(), "txs", work.tcount, "uncles", len(uncles), "elapsed", common.PrettyDuration(time.Since(tstart)))
 		self.unconfirmed.Shift(work.Block.NumberU64() - 1)
-		log.Info("Sleeping for 3 seconds")
-		time.Sleep(3 * time.Second)
+		log.Info("Sleeping for 5 seconds")
+		time.Sleep(5 * time.Second)
 	}
 	self.push(work)
 }
